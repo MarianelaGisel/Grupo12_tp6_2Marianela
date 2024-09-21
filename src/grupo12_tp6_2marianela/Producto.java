@@ -78,6 +78,11 @@ public class Producto {
         final Producto other = (Producto) obj;
         return this.codigo == other.codigo;
     }
+
+    @Override
+    public String toString() {
+        return "codigo=" + codigo + ", " + descripcion;
+    }
     
     
     
