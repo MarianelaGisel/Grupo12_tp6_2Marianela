@@ -2,21 +2,27 @@
 package grupo12_tp6_2marianela;
 
 
-public class Producto {
-    int codigo;
-    String descripcion;
-    long precio;
-    int stock;
-    String rubro;
+public class Producto implements Comparable <Producto> {
+   //Atributos
+    private int codigo;
+    private String descripcion;
+    private double precio; //double
+    private String rubro;
+    private int stock;
+    
 
-    public Producto(int codigo, String descripcion, long precio, int stock, String rubro) {
+    
+    //Constructor
+    public Producto(int codigo, String descripcion, double precio,  String rubro,int stock) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.rubro=rubro;
         this.stock = stock;
-        this.rubro = rubro;
+        
     }
 
+    //codigo getter
     public int getCodigo() {
         return codigo;
     }
@@ -25,7 +31,7 @@ public class Producto {
         return descripcion;
     }
 
-    public long getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -37,6 +43,8 @@ public class Producto {
         return rubro;
     }
 
+    
+    //codigo setter
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
@@ -45,7 +53,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public void setPrecio(long precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -85,5 +93,18 @@ public class Producto {
     }
     
     
+    //Principalmente se usa para un TreeSet de productos, segun el codigo
+    @Override
+    public int compareTo(Producto otro) {
+        if(this.codigo == otro.codigo)
+            return 0 ;//si this.codigo == otro.codigo (son iguales)
+        else
+            if(this.codigo > otro.codigo)
+                return  1;//si: this.codigo > otro.codigo  
+            else
+                return -1 ; //si: this.codigo < otro.codigo
+    }
+    
+   
     
 }
