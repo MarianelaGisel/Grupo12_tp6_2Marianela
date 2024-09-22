@@ -1,6 +1,8 @@
 
 package grupo12_tp6_2marianela;
 
+       
+
 import static grupo12_tp6_2marianela.Productos.productos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -12,10 +14,12 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
    
     public GestionDeProductos() {
         initComponents();
-        cargarCombo ();//(1)Inicializamos el ComboBox cargado.
         modelo = new DefaultTableModel();
+        cargarCombo ();//(1)Inicializamos el ComboBox cargado.
         cargarCombo2 ();
         armarCabecera();
+        cargarTabla(); //muestra la tabla vacia o si cargamos datos
+       
         
     }
 
@@ -505,8 +509,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jtRubro.addItem("Perfumería");
     }
 
-    //(B)Armamos el combo 2°
-    
+    //(B)Armamos el combo 2°   
      public void cargarCombo2 (){
         // Limpiar el JComboBox antes de cargar elementos
         jcbCategoria.removeAllItems();
@@ -535,7 +538,9 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
     
     //(d)Cargar datos a mi tabla productos
     public void cargarTabla(){
-      // Limpiar cualquier dato anterior en la tabla
+    jtProductos.getTableHeader().setReorderingAllowed(false); //para q no podamos mover las columnas de la tabla.
+    
+    // Limpiar cualquier dato anterior en la tabla
     DefaultTableModel modelo = (DefaultTableModel) jtProductos.getModel();
     modelo.setRowCount(0);
 
@@ -550,6 +555,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
             producto.getStock(),
             
         });
+       
     }
     
     

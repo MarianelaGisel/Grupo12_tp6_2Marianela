@@ -57,6 +57,11 @@ public class DeTodoSA extends javax.swing.JFrame {
         jMenu2.setText("Consulta");
 
         jMenuItem2.setText("Buscar por Nombre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem4.setText("Buscar por Precio");
@@ -68,6 +73,11 @@ public class DeTodoSA extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuItem6.setText("Buscar por Rubro");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
@@ -92,6 +102,7 @@ public class DeTodoSA extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //(a)Menu "Administracion", seleccion: 'Gestion de productos' (JInternalFrame)
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
@@ -101,9 +112,38 @@ public class DeTodoSA extends javax.swing.JFrame {
         escritorio.moveToFront(GestProductos);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    
+    //(b)Menu "Consulta", seleccion: "Buscar por nombre" (JInternalFrame)
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BuscarPorNombre bpn= new BuscarPorNombre();
+        bpn.setVisible(true);
+        escritorio.add(bpn);
+        escritorio.moveToFront(bpn);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    
+    //(c)Menu "Consulta", seleccion: "Buscar por precio" (JInternalFrame)
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-      
+        escritorio.removeAll();
+        escritorio.repaint();
+        BuscarPorPrecio bpp= new BuscarPorPrecio();
+        bpp.setVisible(true);
+        escritorio.add(bpp);
+        escritorio.moveToFront(bpp);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    
+    //(d)Menu "Consulta", seleccion: "Buscar por rubro" (JInternalFrame)
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        BuscarPorRubro bpr= new BuscarPorRubro();
+        bpr.setVisible(true);
+        escritorio.add(bpr);
+        escritorio.moveToFront(bpr);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     
     public static void main(String args[]) {

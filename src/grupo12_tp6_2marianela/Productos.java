@@ -18,7 +18,7 @@ public class Productos {
 }
     
  //(B)Buscamos el producto por el codigo
- public boolean eliminarProducto(int codigo) {
+    public boolean eliminarProducto(int codigo) {
         Producto producto = buscarProductoPorCodigo(codigo);
         if (producto != null) {
             return productos.remove(producto);
